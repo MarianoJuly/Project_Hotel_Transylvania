@@ -13,7 +13,7 @@
   + Hoteis
   + Reservas e Check-In
   + Gestão de quartos
-  + Gestão de hoteis
+  + Gestão de hoteis 
     
 ## <h2>Tecnologias Usadas:</h2>
  <h3>Linguagens:</h3>
@@ -25,7 +25,7 @@
 
   + PostgreSql
 
-##  <h3>Frameworks:</h3>
+##  <h3>Frameworks :</h3>
   
   + React
   + Django
