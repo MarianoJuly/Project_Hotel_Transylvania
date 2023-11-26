@@ -21,7 +21,7 @@ def salvaFuncionario(dataParam):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def deletaFuncionario():
+def deletaFuncionario(id):
     if id != 0:
         try:
             Funcionarios = Funcionario.objects.get(id=id)
