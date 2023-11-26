@@ -35,3 +35,19 @@ def deletaHotel(id):
         Hotels.delete()
         return Response("deletados") 
     
+def atualizaHotel(id, request):
+    if id != 0:
+        # Isso retorna um objeto único ou None
+        hotel = Hotel.objects.filter(id=id).first()
+
+        if hotel:
+            hotel.nome = request.data.get('nome', hotel.nome)
+            serializer = HotelSerializer(hotel, data=request.data, partial=True)
+            
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        
+        return Response("Hotel não encontrado ou dados inválidos", status=404)
+
+    return Response("ID inválido", status=400)

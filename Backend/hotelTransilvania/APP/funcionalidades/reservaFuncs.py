@@ -35,4 +35,20 @@ def deletaReserva(id):
         Reservas = Reserva.objects.all()
         Reservas.delete()
         return Response("deletados") 
-    
+
+def atualizaReserva(id, request):
+    if id != 0:
+        # Isso retorna um objeto único ou None
+        reserva = Reserva.objects.filter(id=id).first()
+
+        if reserva:
+            reserva.data = request.data.get('nome', reserva.nome)
+            serializer = ReservaSerializer(reserva, data=request.data, partial=True)
+            
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        
+        return Response("Reserva não encontrada ou dados inválidos", status=404)
+
+    return Response("ID inválido", status=400)  

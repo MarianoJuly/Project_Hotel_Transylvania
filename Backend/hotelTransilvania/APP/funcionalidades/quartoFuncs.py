@@ -35,3 +35,24 @@ def deletaQuarto(id):
         Quartos.delete()
         return Response("deletados") 
     
+def atualizaQuarto(id, request):
+    if id != 0:
+        # Isso retorna um objeto único ou None
+        quarto = Quarto.objects.filter(numero = id).first()
+
+        if quarto:
+            quarto.camasCasal = request.data.get('camasCasal', quarto.camasCasal)
+            quarto.camasSolteiro = request.data.get('camasSolteiro', quarto.camasSolteiro)
+            #return Response(quarto.camasSolteiro)
+            #return Response(quarto.camasCasal)
+            #return Response(request.data)
+            serializer = QuartoSerializer(quarto, data=request.data, partial = True)
+            
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        
+        return Response("Quarto não encontrado ou dados inválidos", status=404)
+
+    return Response("ID inválido", status=400) 
+

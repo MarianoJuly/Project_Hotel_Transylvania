@@ -34,4 +34,22 @@ def deletaCliente(id):
         Clientes = Cliente.objects.all()
         Clientes.delete()
         return Response("deletados") 
-    
+
+def atualizaCliente(id, request):
+    if id != 0:
+        # Isso retorna um objeto único ou None
+        cliente = Cliente.objects.filter(id=id).first()
+
+        if cliente:
+            cliente.nome = request.data.get('nome', cliente.nome)
+            serializer = ClienteSerializer(cliente, data=request.data, partial=True)
+            
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        
+        return Response("Cliente não encontrado ou dados inválidos", status=404)
+
+    return Response("ID inválido", status=400)    
+
+

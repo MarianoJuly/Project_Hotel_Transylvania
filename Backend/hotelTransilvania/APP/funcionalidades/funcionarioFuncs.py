@@ -35,3 +35,20 @@ def deletaFuncionario(id):
         Funcionarios.delete()
         return Response("deletados") 
     
+def atualizaFuncionario(id, request):
+    if id != 0:
+        # Isso retorna um objeto único ou None
+        funcionario = Funcionario.objects.filter(id=id).first()
+
+        if funcionario:
+            funcionario.nome = request.data.get('nome', funcionario.nome)
+            serializer = FuncionarioSerializer(funcionario, data=request.data, partial = True)
+            
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        
+        return Response("Funcionario não encontrado ou dados inválidos", status=404)
+
+    return Response("ID inválido", status=400)    
+
