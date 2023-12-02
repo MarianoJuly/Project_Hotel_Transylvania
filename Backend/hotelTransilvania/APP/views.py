@@ -1,3 +1,5 @@
+
+#Uma funcionalidade settada por arquivo
 from .funcionalidades.funcionarioFuncs import retornaFuncionario,salvaFuncionario,deletaFuncionario,atualizaFuncionario
 from .funcionalidades.hotelFuncs import retornaHotel,salvaHotel,deletaHotel,atualizaHotel
 from .funcionalidades.quartoFuncs import retornaQuarto,salvaQuarto,atualizaQuarto,deletaQuarto
@@ -5,6 +7,8 @@ from .funcionalidades.clienteFuncs import retornaCliente,salvaCliente,deletaClie
 from rest_framework.views import APIView
 
 #Reserva não será declarado no crud, pois se trada de uma relação mais elaborada e precisa de um tratamento melhor que uma simples tabela.
+
+
 
 class respostaHotel(APIView):
     
@@ -65,4 +69,5 @@ class respostaCliente(APIView):
     
     def put(self,request, id = 0): 
         return atualizaCliente(id,request)
+
 
