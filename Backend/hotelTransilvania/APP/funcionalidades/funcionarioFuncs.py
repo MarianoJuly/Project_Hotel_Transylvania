@@ -3,7 +3,41 @@ from ..models import Funcionario
 from rest_framework import status
 from rest_framework.response import Response
 
+#logging
+class Logging:
+    # Atributo estático
+    logado = False
 
+    # Método estático para obter o valor do atributo logado
+    @staticmethod
+    def get_logado():
+        return Logging.logado
+
+    # Método estático para definir o atributo como True
+    @staticmethod
+    def logar():
+        Logging.logado = True
+
+    # Método estático para definir o atributo como False
+    @staticmethod
+    def deslogar():
+        Logging.logado = False
+
+def deslogar():
+    Logging.deslogar()
+    return Response(Logging.get_logado())
+
+def logar(id=0, senha=0):
+    if id != 0:    
+        Funcionarios = Funcionario.objects.filter(id = id, senha = senha)
+        serializer = FuncionarioSerializer(Funcionarios, many=True)
+        
+        Logging.logar()
+        return Response(serializer.data)
+    
+    else:
+       return Response("fail")  
+     
 def retornaFuncionario(id=0):
     if id != 0:    
         Funcionarios = Funcionario.objects.filter(id = id)
@@ -16,15 +50,12 @@ def retornaFuncionario(id=0):
         return Response(serializer.data)
 
 def salvaFuncionario(dataParam):
-
-    if(dataParam.get('senha')):
-        serializer = FuncionarioSerializer(data=dataParam)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+    serializer = FuncionarioSerializer(data=dataParam)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-    return Response("Erro ao salvar funcionario", status=status.HTTP_400_BAD_REQUEST)
-
 def deletaFuncionario(id):
     if id != 0:
         try:
