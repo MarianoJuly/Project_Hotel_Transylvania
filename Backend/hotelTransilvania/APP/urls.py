@@ -1,10 +1,13 @@
 # urls.py
 from django.urls import path
-from .views import  respostaFuncionario, respostaHotel, respostaQuarto
+from .views import  respostaFuncionario, respostaHotel, respostaQuarto, respostaCliente
 
 urlpatterns = [
    
     #url da aplicação
+    path('cliente/', respostaCliente.as_view()),
+    path('cliente/<int:id>', respostaCliente.as_view()),
+
     path('funcionario/', respostaFuncionario.as_view()),
     path('funcionario/<int:id>', respostaFuncionario.as_view()),
    

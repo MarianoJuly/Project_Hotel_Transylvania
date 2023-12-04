@@ -3,6 +3,10 @@ from ..models import Funcionario
 from rest_framework import status
 from rest_framework.response import Response
 
+
+def fazReserva(objetoReserva):
+    return True
+
 def retornaFuncionario(id=0):
     if id != 0:    
         Funcionarios = Funcionario.objects.filter(id = id)
@@ -15,11 +19,15 @@ def retornaFuncionario(id=0):
         return Response(serializer.data)
 
 def salvaFuncionario(dataParam):
-    serializer = FuncionarioSerializer(data=dataParam)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        
+        if(dataParam.get('senha')):
+            serializer = FuncionarioSerializer(data=dataParam)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+        return Response("Erro ao salvar funcionario", status=status.HTTP_400_BAD_REQUEST)
 
 def deletaFuncionario(id):
     if id != 0:

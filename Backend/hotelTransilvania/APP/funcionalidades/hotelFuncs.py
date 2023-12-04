@@ -3,6 +3,12 @@ from ..models import Hotel
 from rest_framework import status
 from rest_framework.response import Response
 
+def temQuarto(id = id):
+    if id != 0:    
+        Hotels = Hotel.objects.first(id = id)
+        return Hotels.temQuarto
+    return "Hotel inexistente"    
+    
 def retornaHotel(id=0):
     if id != 0:    
         Hotels = Hotel.objects.filter(id = id)

@@ -8,18 +8,21 @@ class Cliente(models.Model):
     
 class Funcionario(models.Model):
     id =  models.AutoField(primary_key=True, auto_created=True, editable=False)
-    nome = models.CharField(max_length=500, null=False)
-    cpf = models.CharField(max_length=15, null=False)
+    nome = models.CharField(max_length=200, null=False)
+    senha = models.CharField(max_length=200, null=False, default='invalido')
+    cpf = models.CharField(max_length=11, null=False)
 
 class Hotel(models.Model):
     id =  models.AutoField(primary_key=True, auto_created=True, editable=False)
     nome = models.CharField(max_length=500, null=False)
     quantQuarto = models.PositiveIntegerField(default= 0)
+    temQuarto = models.BooleanField(default=False)
     localizacao = models.CharField(max_length=500, null=False, default=0)
 
 class Quarto(models.Model):
     numero = models.PositiveIntegerField(primary_key=True)
     camasSolteiro = models.PositiveIntegerField()
+    ocupado = models.BooleanField(default=False)
     camasCasal = models.PositiveIntegerField()
     idHotel = models.OneToOneField(Hotel, on_delete=models.PROTECT, null=False, default=0)
 

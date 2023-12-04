@@ -8,6 +8,13 @@ from rest_framework.views import APIView
 
 #Reserva não será declarado no crud, pois se trada de uma relação mais elaborada e precisa de um tratamento melhor que uma simples tabela.
 
+# Lógica de loging -------//
+# Classe existe uma variavél de loging para determinada pessoa
+# -> quando feito o loging voce receberá uma string que terá funcionalidade de tolken
+# -> sempre que feito uma nova requisição você deverá utilizar sua string para aplicação garantir que vc está logado
+# -> ATENÇÃO: essa aplicação não é escalavel pois o loging é carrergado em memória principal, caso muitos acessos travara o servidor
+
+#class logado():
 
 
 class respostaHotel(APIView):
