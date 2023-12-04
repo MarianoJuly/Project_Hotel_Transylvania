@@ -1,16 +1,19 @@
 # models.py
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
+
+
+class Funcionario(AbstractBaseUser, PermissionsMixin):
+    id = models.AutoField(primary_key=True, auto_created=True, editable=False)
+    nome = models.CharField(max_length=200, null=False)
+    cpf = models.CharField(max_length=11, unique=True, null=False)
+    senha = models.CharField(max_length=200, null=False)
+
 
 class Cliente(models.Model):
     id =  models.AutoField(primary_key=True, auto_created=True, editable=False)
     nome = models.CharField(max_length=500, null=False)
     idade = models.PositiveIntegerField()
-    
-class Funcionario(models.Model):
-    id =  models.AutoField(primary_key=True, auto_created=True, editable=False)
-    nome = models.CharField(max_length=200, null=False)
-    senha = models.CharField(max_length=200, null=False, default='invalido')
-    cpf = models.CharField(max_length=11, null=False)
 
 class Hotel(models.Model):
     id =  models.AutoField(primary_key=True, auto_created=True, editable=False)
@@ -34,6 +37,5 @@ class Reserva(models.Model):
     dataEntrada = models.DateField(default=0)
     dataSaida = models.DateField(default=0)
     emAtividade = models.BooleanField(default=False)
-
 
     

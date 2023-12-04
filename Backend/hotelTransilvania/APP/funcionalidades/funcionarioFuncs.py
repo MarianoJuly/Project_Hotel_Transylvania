@@ -19,15 +19,14 @@ def retornaFuncionario(id=0):
         return Response(serializer.data)
 
 def salvaFuncionario(dataParam):
-
+    
+    if(dataParam.get('senha')):
+        serializer = FuncionarioSerializer(data=dataParam)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         
-        if(dataParam.get('senha')):
-            serializer = FuncionarioSerializer(data=dataParam)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            
-        return Response("Erro ao salvar funcionario", status=status.HTTP_400_BAD_REQUEST)
+    return Response("Erro ao salvar funcionario", status=status.HTTP_400_BAD_REQUEST)
 
 def deletaFuncionario(id):
     if id != 0:
