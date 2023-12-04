@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.css';
+
+/* Formulario*/ //Funciona
+.form {
+    width: 450px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+/*Titulos*/ //funciona
+.title {
+    text-align: center;
+}
+
+/*Pesquisa*/ //funciona
+
+.pesquisa {
+    text-align: left;
+}
+
+

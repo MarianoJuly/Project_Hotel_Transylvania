@@ -1,0 +1,32 @@
+<h2 class="title">Lista de dados</h2>
+<section id="data-page">
+    <form class="pesquisa">
+        <fa-icon [icon]="faSearch"></fa-icon>
+        <input type="text" placeholder="Busque por um perfil" (keypress)="obterDado($event)" (keyup)="obterDado($event)">
+    </form>
+    <div class="modal">
+        <h3> {{ title }}</h3>
+        <table>
+            <div class="modal-message" *ngIf="allfuncionario.length > 0">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of allfuncionario">
+                        <td>{{data.name}}</td>
+                        <td>{{data.cpfFuncionario}}</td>
+                        <td>
+                            <button (click)="deletar(this.data)">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                                Deletar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </div>
+        </table>
+    </div>
+</section>
