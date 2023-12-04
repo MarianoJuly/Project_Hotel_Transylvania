@@ -1,0 +1,91 @@
+.retangulo {
+  position: relative;
+  width: auto;
+  height: 160px;
+  flex-shrink: 0;
+  background: #D78951;
+  position: relative;
+}
+
+.franquia-message {
+  color: #000;
+  font-family: Aclonica;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.list-inline {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.list-inline-item {
+  margin-right: 10px; /* Adjust the spacing between links as needed */
+}
+
+.retangulo2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: #E8BF82;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.brand, .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+
+.brand img {
+  width: 40px;
+  margin-right: 0.6em;
+}
+
+.brand h2 {
+  transition: .4s;
+}
+
+.brand:hover > h2 {
+  color: #dec129;
+}
+
+.links li {
+  margin-right: 1em;
+  margin-top: 3px;
+  list-style: none;
+}
+
+.links a {
+  padding: .1em .3em;
+}
+
+#add a {
+  color: #dec129;
+}
+
+#add a:hover {
+  background-color: #efefef;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  background: url('/models/pasta/Captura\ de\ tela\ 2023-12-04\ 101651.png') no-repeat center center;
+  background-size: cover;
+}
