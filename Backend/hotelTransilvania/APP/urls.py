@@ -1,9 +1,12 @@
 # urls.py
 from django.urls import path
 from .views import  respostaFuncionario, respostaHotel, respostaQuarto, respostaCliente
+from .loging import LoginView
 
 urlpatterns = [
-   
+
+    path('', LoginView.as_view()),
+
     #url da aplicação
     path('cliente/', respostaCliente.as_view()),
     path('cliente/<int:id>', respostaCliente.as_view()),
