@@ -4,9 +4,6 @@ from rest_framework import status
 from rest_framework.response import Response
 
 
-def fazReserva(objetoReserva):
-    return True
-
 def retornaFuncionario(id=0):
     if id != 0:    
         Funcionarios = Funcionario.objects.filter(id = id)
@@ -19,7 +16,7 @@ def retornaFuncionario(id=0):
         return Response(serializer.data)
 
 def salvaFuncionario(dataParam):
-    
+
     if(dataParam.get('senha')):
         serializer = FuncionarioSerializer(data=dataParam)
         if serializer.is_valid():
