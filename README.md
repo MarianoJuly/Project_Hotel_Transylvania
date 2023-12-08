@@ -29,5 +29,5 @@
 
 ##  <h3>Frameworks :</h3>
   
-  + Angular
+  + Angular v 15.2.7.
   + Django 4.2.7.
