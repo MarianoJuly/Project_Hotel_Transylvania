@@ -21,12 +21,13 @@
 
   + JavaScript
   + Typescript
-  
+  + python 3.8
+   
 ##  <h3>Banco de dados:</h3>
 
-  + MySQL
+  + MySQL Ver 8.0.35-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
 
 ##  <h3>Frameworks :</h3>
   
   + Angular
-  + Django
+  + Django 4.2.7.
