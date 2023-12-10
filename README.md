@@ -11,7 +11,6 @@
   
 ## <h2>Funcionalidades:</h2>
   
-  + Hoteis
   + Reservas e Check-In
   + Gestão de quartos
   + Gestão de hoteis 
