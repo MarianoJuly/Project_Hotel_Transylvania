@@ -1,20 +1,22 @@
 <div class="d-flex justify-content-center align-items-center">
-
   <div class="card p-5">
-    <h1>Login</h1>
-    <form class="form-group">
+    <form class="form" [formGroup]="formulario" #forDir="ngForm">
+      <h1 class="title">Login</h1>
+      <div class="form-group">
+        <label for="email" class="fs-6">E-mail</label>
+        <input type="text" id="email" class="form-control form-control-lg">
+        <div *ngIf="email.invalid && forDir.submitted" class="validation-error">
+          O email e obrigatorio!
+        </div>
+      </div>
 
-              <label for="email" class="fs-6">E-mail</label>
-
-              <input type="text" id="email" class="form-control form-control-lg">
-
-    <div class="form-group">
-
-      <label for="senha" class="fs-6">Senha</label>
-
+      <div class="form-group">
+        <label for="senha" class="fs-6">Senha</label>
         <input type="password" id="senha" class="form-control form-control-lg">
-
-    </div>
+        <div *ngIf="senha.invalid && forDir.submitted" class="validation-error">
+          Senha incorreta!
+        </div>
+      </div>
 
     <a href="#" class="fs-7">Esqueci minha senha</a>
 
