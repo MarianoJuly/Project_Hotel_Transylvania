@@ -3,9 +3,8 @@ from django.db import models
 
 
 class Funcionario(models.Model):
-    id = models.AutoField(primary_key=True, auto_created=True, editable=False)
+    cpf = models.CharField(primary_key=True, editable=False, max_length=11)
     nome = models.CharField(max_length=200, null=False)
-    cpf = models.CharField(max_length=11, unique=True, null=False)
     senha = models.CharField(max_length=200, null=False)
 
 class Cliente(models.Model):
@@ -36,4 +35,4 @@ class Reserva(models.Model):
     dataSaida = models.DateField(default=0)
     emAtividade = models.BooleanField(default=False)
 
-    
+   

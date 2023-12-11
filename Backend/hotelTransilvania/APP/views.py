@@ -16,9 +16,6 @@ from .funcionalidades.funcionarioFuncs import Logging
 # -> sempre que feito uma nova requisição você deverá utilizar sua string para aplicação garantir que vc está logado
 # -> ATENÇÃO: essa aplicação não é escalavel pois o loging é carrergado em memória principal, caso muitos acessos travara o servidor
 
-
-
-
 class respostaHotel(APIView):
     
     #no get nos adicionamos um valor default do id == 0 para que possamos arrumar as rotas
@@ -145,3 +142,6 @@ class Acessar(APIView):
         
     def post(self, request, id = 0, senha=0):       
         return logar(request.data.get('id'), request.data.get('senha'))  
+    
+
+    
