@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegistrarFuncionariosComponent } from './components/formularios/registrar-funcionarios/registrar-funcionarios.component';
 import { RegistrarHotelComponent } from './components/formularios/registrar-hotel/registrar-hotel.component';
 import { FirstComponentComponent } from './components/formularios/registrar-cliente/first-component.component';
+import { LoginComponent } from './components/formularios/login/login.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FirstComponentComponent } from './components/formularios/registrar-clie
     ModalComponent,
     MensagemComponent,
     FirstComponentComponent,
+    LoginComponent,
     CabecalhoComponent,
     HomeComponent,
     RegistrarFuncionariosComponent,
