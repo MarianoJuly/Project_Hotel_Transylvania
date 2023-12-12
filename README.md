@@ -18,8 +18,8 @@
 ## <h2>Tecnologias Usadas:</h2>
  <h3>Linguagens:</h3>
 
-  + JavaScript
-  + Typescript
+  + JavaScript 4.8
+  + Typescript 4.8
   + python 3.8
    
 ##  <h3>Banco de dados:</h3>
@@ -30,3 +30,17 @@
   
   + Angular v 15.2.7.
   + Django 4.2.7.
+
+## <h2>Regras de uso do github:</h2>
+
+  + Commits:
+  Os commits devem ser descritivos sendo a primeira palavra um verbo, ele também deve ocorrer sempre que algo e atualizado ou criado.
+  + Pull Requests
+  Os pull requests so serão feitos com a supervisão e juntamente com outro membro
+  + Criação de branchs
+  Deve se criar uma branch sempre que a alteração apresentar grau de complexidade alta e medio
+  + Pastas
+  As pastas são tendem a ser descritivas, ou seja, seus nomes são respectivos ao seu conteudo
+
+  
+  
