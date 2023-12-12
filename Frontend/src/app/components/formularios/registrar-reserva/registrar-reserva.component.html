@@ -1,19 +1,19 @@
-<div class="d-flex justify-content-center align-items-center">
+<!-- <div class="d-flex justify-content-center align-items-center">
   <div class="card p-5">
-    <h2 class="title">Cadastre o cliente</h2>
+    <h2 class="title">Registrar Hotel</h2>
     <form class="form" (ngSubmit)="submit()" [formGroup]="formulario" #forDir="ngForm">
         <div class="form-group">
             <label class="fs-6">Nome:</label>
-            <input class="form-control form-control-lg" type="text" formControlName="name" name="nomeCliente" placeholder="Seu nome">
+            <input type="text" formControlName="name" name="nomeCliente" placeholder="Seu nome" class="form-control form-control-lg">
             <div *ngIf="name.invalid && forDir.submitted" class="validation-error">
                 O nome e obrigatorio!
             </div>
         </div>
         <div class="form-group">
-            <label>Idade:</label>
-            <input type="text" formControlName="idade" name="idade" placeholder="Ex: XXX.XXX.XXX-XX" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
-            <div *ngIf="idade.invalid && forDir.submitted" class="validation-error">
-                O CPF e obrigatorio!
+            <label class="fs-6">Localização:</label>
+            <input type="text" formControlName="localizacao" name="localizacao" placeholder="Ex: Maceio Sergipe" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
+            <div *ngIf="localizacao.invalid && forDir.submitted" class="validation-error">
+                A localização e obrigatorio!
             </div>
         </div>
         <div class="form-group">
@@ -25,4 +25,4 @@
         </div>
     </form>
   </div>
-</div>
+</div> -->

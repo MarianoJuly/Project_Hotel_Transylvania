@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-
 import { ControleService } from 'src/services/controle.service';
 
 import { faSearch, faTimes, faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -37,7 +36,8 @@ export class ModalComponent implements OnInit{
       });
     };
 
-    ngOnInit(): void {};
+    ngOnInit(): void {
+    };
 
     async deletar(dados: funcionario){ //não ta pronto
       this.controla.deletaTudo(dados.idFuncionario).subscribe(resul => console.log(resul));
@@ -60,18 +60,5 @@ export class ModalComponent implements OnInit{
       this.showMensage = true;
     }
 
-    obterDado(e: KeyboardEvent): void {
-      const inputValue = (<HTMLInputElement>e.target).value; //deveria estar no service
-     //verificar se temos um CEP válido
-      this.controla.searsh(inputValue)
-        .pipe(
-          catchError(error => {
-            this.showMensage = false;
-            return of([])})
-        )
-        .subscribe(data => {
-            this.allfuncionario = data
-            this.showMe();
-          });
-    }
+    displayColumns = ['ID', 'Name','CPF', 'Funções']
 }

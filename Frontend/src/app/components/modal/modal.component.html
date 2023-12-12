@@ -1,32 +1,31 @@
-<h2 class="title">Lista de dados</h2>
+<h2 class="title">Lista de Funcionarios</h2>
 <section id="data-page">
-    <form class="pesquisa">
-        <fa-icon [icon]="faSearch"></fa-icon>
-        <input type="text" placeholder="Busque por um perfil" (keypress)="obterDado($event)" (keyup)="obterDado($event)">
-    </form>
-    <div class="modal">
-        <h3> {{ title }}</h3>
-        <table>
-            <div class="modal-message" *ngIf="allfuncionario.length > 0">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of allfuncionario">
-                        <td>{{data.name}}</td>
-                        <td>{{data.cpfFuncionario}}</td>
-                        <td>
-                            <button (click)="deletar(this.data)">
-                                <fa-icon [icon]="faTrash"></fa-icon>
-                                Deletar
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </div>
-        </table>
-    </div>
+  <mat-table [dataSource]="allfuncionario">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="ID">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.idFuncionario}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- cpfFuncionario Column -->
+    <ng-container matColumnDef="CPF">
+      <mat-header-cell *matHeaderCellDef>CPF</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.cpfFuncionario}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Funções">
+      <mat-header-cell *matHeaderCellDef>Funções</mat-header-cell>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayColumns;"></mat-row>
+  </mat-table>
 </section>

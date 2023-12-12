@@ -6,6 +6,8 @@ import { FirstComponentComponent } from './components/formularios/registrar-clie
 import { HomeComponent } from './components/home/home.component';
 import { RegistrarFuncionariosComponent } from './components/formularios/registrar-funcionarios/registrar-funcionarios.component';
 import { LoginComponent } from './components/formularios/login/login.component';
+import { HotelModalComponent } from './components/hotel-modal/hotel-modal.component';
+import { RegistrarHotelComponent } from './components/formularios/registrar-hotel/registrar-hotel.component';
 
 const routes: Routes = [
   {path: 'modalDatas', component: ModalComponent},
@@ -13,6 +15,8 @@ const routes: Routes = [
   {path: 'formularioFuncionario', component: RegistrarFuncionariosComponent},
   {path: 'home',component: HomeComponent},
   {path: 'login', component: LoginComponent },
+  {path: 'listaHotel', component: HotelModalComponent },
+  {path: 'registrarHotel', component: RegistrarHotelComponent}
 ];
 
 @NgModule({
