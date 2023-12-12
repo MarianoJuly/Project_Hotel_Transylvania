@@ -18,7 +18,7 @@
 ## <h2>Tecnologias Usadas:</h2>
  <h3>Linguagens:</h3>
 
-  + JavaScript 4.8
+  + Node 18.16.1               
   + Typescript 4.8
   + python 3.8
    
@@ -42,5 +42,24 @@
   + Pastas
   As pastas são tendem a ser descritivas, ou seja, seus nomes são respectivos ao seu conteudo
 
+## <h2>Regras para boa pratica de programação:</h2>
+
+1.Nomenclatura Descritiva:
   
+    Usa nomes de variáveis, funções e classes que descrevam claramente o propósito e a funcionalidade.
+    Evite abreviações confusas. Prefira clareza e legibilidade sobre economia de caracteres.
+2.Divisão Lógica e Modularização:
+  
+    Divida seu código em funções ou módulos pequenos e específicos. Cada função ou módulo deve realizar uma tarefa única.
+    Evite funções muito longas que realizam muitas tarefas diferentes. Isso melhora a manutenibilidade e facilita a compreensão do código.
+
+3.CLEAN CODE:
+
+  Aplique os princípios do CLEAN CODE, como evitar duplicação de código, manter funções curtas e focadas, e garantir a clareza e simplicidade do código.
+
+4.Consistência na Indentação Utilizando Tabs:
+
+  Mantenha a consistência na indentação do código utilizando tabs.
+
+
   
