@@ -48,6 +48,7 @@
   
     Usa nomes de variáveis, funções e classes que descrevam claramente o propósito e a funcionalidade.
     Evite abreviações confusas. Prefira clareza e legibilidade sobre economia de caracteres.
+    
 2.Divisão Lógica e Modularização:
   
     Divida seu código em funções ou módulos pequenos e específicos. Cada função ou módulo deve realizar uma tarefa única.
@@ -55,11 +56,11 @@
 
 3.CLEAN CODE:
 
-  Aplique os princípios do CLEAN CODE, como evitar duplicação de código, manter funções curtas e focadas, e garantir a clareza e simplicidade do código.
+    Aplique os princípios do CLEAN CODE, como evitar duplicação de código, manter funções curtas e focadas, e garantir a clareza e simplicidade do código.
 
 4.Consistência na Indentação Utilizando Tabs:
-
-  Mantenha a consistência na indentação do código utilizando tabs.
+  
+    Mantenha a consistência na indentação do código utilizando tabs.
 
 
   
