@@ -1,3 +1,4 @@
+import { MatTableModule } from '@angular/material/table';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +16,9 @@ import { RegistrarFuncionariosComponent } from './components/formularios/registr
 import { RegistrarHotelComponent } from './components/formularios/registrar-hotel/registrar-hotel.component';
 import { FirstComponentComponent } from './components/formularios/registrar-cliente/first-component.component';
 import { LoginComponent } from './components/formularios/login/login.component';
+import { HotelModalComponent } from './components/hotel-modal/hotel-modal.component';
+import { RegistrarReservaComponent } from './components/formularios/registrar-reserva/registrar-reserva.component';
+import { ReservaModalComponent } from './components/reserva-modal/reserva-modal.component';
 
 
 @NgModule({
@@ -27,7 +31,10 @@ import { LoginComponent } from './components/formularios/login/login.component';
     CabecalhoComponent,
     HomeComponent,
     RegistrarFuncionariosComponent,
-    RegistrarHotelComponent
+    RegistrarHotelComponent,
+    HotelModalComponent,
+    RegistrarReservaComponent,
+    ReservaModalComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +44,7 @@ import { LoginComponent } from './components/formularios/login/login.component';
     HttpClientModule,
     FontAwesomeModule,
     RouterLink,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent,ModalComponent,MensagemComponent]

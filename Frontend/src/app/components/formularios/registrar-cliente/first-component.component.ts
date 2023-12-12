@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ListService } from '../../../../services/list.service';
 
 import { DataClient } from '../../../models/dataClient';
 import { MessagesService } from 'src/services/messages.service';
@@ -47,7 +46,7 @@ async submit() {
       this.rota.navigate(['home']);
   }
 
-  constructor(private listService: ListService,
+  constructor(
               private mensagens: MessagesService,
               private controller: ControleService,
               private rota: Router
