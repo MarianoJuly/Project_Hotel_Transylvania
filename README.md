@@ -62,5 +62,27 @@
   
     Mantenha a consistência na indentação do código utilizando tabs.
 
+## <h2>Explicação de pastas:</h2>
 
-  
+
+  Projeto Hotel Transilvania
+          ->  Backend diretório que separa o back do front
+              |-> hotelTransilvania : diretório com o projetodo do backend
+                 |-> APP : diretório com a aplicação do back end
+                    |-> funcionalidades : diretorio com as funcionalidades do projeto
+                    |-> migrations : diretorio com as migrations do projeto
+                 |-> hotelTransilvania : diretório de configurações do projeto
+              | -> venv : diretório com o ambiente virtual
+
+
+
+          -> Frontend
+              |-> src : local onde pode se encontrar a estrutura principal do codigo 
+              |  -> app: estrutura que se encontra a pasta de components, routina de paginas, services e modelos
+              |     ->services : dentro de services possue as rotas de chamadas de dados ao backend, comunicação API
+              |     -> models : são estruturas de dados que serão enviadas ou recebidas
+              |     ->components: dentro de components estão cada elemento do codigo modularizado
+              |     na pasta de componments tudo e muito descritivo por isso explicarei so a pasta de formularios e modal
+              |        -> formularios: dentro desta pasta se encontrao todo tipo de formulario
+              |        -> modal : modal são arquivos que vão listar algo para o usuario 
+              |->arquivos.json : se encontrão as dependencias, versões de bibliotecas etc
