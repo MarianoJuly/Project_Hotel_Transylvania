@@ -66,8 +66,13 @@
 
 
   Projeto Hotel Transilvania
-          ->  Backend
-              ->
+          ->  Backend diretório que separa o back do front
+              |-> hotelTransilvania : diretório com o projetodo do backend
+                 |-> APP : diretório com a aplicação do back end
+                    |-> funcionalidades : diretorio com as funcionalidades do projeto
+                    |-> migrations : diretorio com as migrations do projeto
+                 |-> hotelTransilvania : diretório de configurações do projeto
+              | -> venv : diretório com o ambiente virtual
 
 
 
