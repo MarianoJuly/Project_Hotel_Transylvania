@@ -44,7 +44,7 @@ import { ReservaModalComponent } from './components/reserva-modal/reserva-modal.
     HttpClientModule,
     FontAwesomeModule,
     RouterLink,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent,ModalComponent,MensagemComponent]

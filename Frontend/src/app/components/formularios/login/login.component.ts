@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ControleFuncService } from 'src/services/controle-func.service';
+import { ControleService } from 'src/services/controle.service';
 import { MessagesService } from 'src/services/messages.service';
 
 @Component({
@@ -7,11 +9,11 @@ import { MessagesService } from 'src/services/messages.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   formulario!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private mensagens: MessagesService){}
+  constructor(private serviceFunc: ControleFuncService,   private formBuilder: FormBuilder, private mensagens: MessagesService){}
 
   ngOnInit(): void {
     this.criaForm();
@@ -19,33 +21,29 @@ export class LoginComponent {
 
   async criaForm(){
     this.formulario = new FormGroup({
-      email: new FormControl(this.token.email, [Validators.required]),
-      senha: new FormControl(this.token.senha, [Validators.required])
+      cpf: new FormControl('', [Validators.required]),
+      senha: new FormControl('', [Validators.required])
     });
   }
 
-  token: any = {
-    email: '',
-    senha: ''
-  }
-
   async submit() {
+    console.log("validação1")
     if(this.formulario.invalid){
       this.mensagens.add("Não foi possivel salvar o formulario");
       return;
     }else{
+      console.log("validação2")
+      this.serviceFunc.loging(this.formulario.value).subscribe();
       this.mensagens.add("Formulario Salvo com sucesso");
     }
   }
 
-  get email(){
-    return this.formulario.get('email')!;
+  get cpf(){
+    return this.formulario.get('cpf')!;
   }
 
   get senha(){
     return this.formulario.get('senha')!;
   }
-
-
 
 }

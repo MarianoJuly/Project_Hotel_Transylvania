@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { DataClient } from 'src/app/models/dataClient';
 import { funcionario } from 'src/app/models/funcionario';
 import { Hotel } from 'src/app/models/hotel';
+import { loging } from 'src/app/models/loging';
 import { PROXY_CONFIG } from 'src/proxy.conf';
 
 
@@ -21,6 +22,9 @@ export class ControleService {
       tap(tipo => console.log(tipo))
     );
   }
+
+
+
 
   create(newData: DataClient){
     return this.httpClient.post<DataClient>(`${PROXY_CONFIG.baseURlCli}`, newData);
@@ -59,4 +63,6 @@ export class ControleService {
   adicionaHotel(hotelNovo: Hotel){
     return this.httpClient.post<Hotel>(`${PROXY_CONFIG.baseURl}`, hotelNovo);
   }
+
+
 }

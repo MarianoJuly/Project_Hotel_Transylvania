@@ -1,4 +1,4 @@
-<h2 class="title">Lista de Funcionarios</h2>
+<h2 class="title">Lista de Funcionários</h2>
 <section id="data-page">
   <mat-table #table [dataSource]="funcionarios">
 
@@ -14,8 +14,13 @@
       <mat-cell *matCellDef="let element">{{element.cpf}} </mat-cell>
     </ng-container>
 
+    <!-- Funções Column -->
     <ng-container matColumnDef="Funções">
       <mat-header-cell *matHeaderCellDef>Funções</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button (click)="editar(element)">Edit</button>
+        <button (click)="deletar(element)">delete</button> 
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

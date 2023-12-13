@@ -3,7 +3,7 @@ from django.urls import path
 from .views import  respostaFuncionario, respostaHotel, respostaQuarto, respostaCliente, respostaReserva, Acessar
 
 urlpatterns = [
-    path('logging/', Acessar.as_view()),
+    path('loging/', Acessar.as_view()),
 
      #url da aplicação
     path('funcionario/', respostaFuncionario.as_view()),

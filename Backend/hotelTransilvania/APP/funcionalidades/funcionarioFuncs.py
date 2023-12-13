@@ -37,7 +37,7 @@ def logar(cpf=0, senha=0):
         return Response(serializer.data)
     
     else:
-       return Response("fail")  
+       return JsonResponse("Campos invalidos", status=status.HTTP_400_BAD_REQUEST)
      
 def retornaFuncionario(cpf=0):
       if cpf != 0:    
@@ -55,12 +55,12 @@ def salvaFuncionario(dataParam):
     serializer = FuncionarioSerializer(data=dataParam)
     print(serializer)
     print(dataParam)
-    if serializer.is_valcpf():
+    if serializer.is_valid():
         serializer.save()
         return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
     return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-def deletaFuncionario(cpf):
+def deletaFuncionario(cpf=0):
     if cpf != 0:
         try:
             Funcionarios = Funcionario.objects.get(cpf=cpf)

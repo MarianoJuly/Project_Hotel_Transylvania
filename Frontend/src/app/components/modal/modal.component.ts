@@ -45,7 +45,6 @@ export class ModalComponent implements OnInit{
       this.route.navigate(['home']);
     }
 
-
     editar(dados: funcionario){ //não ta pronto
       this.route.navigate(['edit', dados.cpf]);
     }

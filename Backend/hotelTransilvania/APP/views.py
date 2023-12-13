@@ -49,7 +49,7 @@ class respostaFuncionario(APIView):
               
         return salvaFuncionario(request.data)     
     
-    def delete(self, request, cpf=0):
+    def delete(self, cpf=0):
         if(Logging.get_logado() == False):
             return Response("Faça logging")
         return deletaFuncionario(cpf)
@@ -135,8 +135,8 @@ class Acessar(APIView):
         else: 
             return Response("Erro")
         
-    def post(self, request, id = 0, senha=0):       
-        return logar(request.data.get('id'), request.data.get('senha'))  
+    def post(self, request):       
+        return logar(request.data.get('cpf'), request.data.get('senha'))  
     
 
     

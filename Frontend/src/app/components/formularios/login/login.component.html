@@ -1,31 +1,29 @@
 <div class="d-flex justify-content-center align-items-center">
   <div class="card p-5">
-    <form class="form" [formGroup]="formulario" #forDir="ngForm">
+    <form class="form" [formGroup]="formulario" (ngSubmit)="submit()" #forDir="ngForm">
       <h1 class="title">Login</h1>
       <div class="form-group">
-        <label for="email" class="fs-6">E-mail</label>
-        <input type="text" id="email" class="form-control form-control-lg">
-        <div *ngIf="email.invalid && forDir.submitted" class="validation-error">
-          O email e obrigatorio!
+        <label for="cpf" class="fs-6">CPF</label>
+        <input class="form-control form-control-lg" type="text" formControlName="cpf" name="cpf" placeholder="">
+        <div *ngIf="cpf.invalid && forDir.submitted" class="validation-error">
+          O cpf e obrigatorio!
         </div>
       </div>
 
       <div class="form-group">
         <label for="senha" class="fs-6">Senha</label>
-        <input type="password" id="senha" class="form-control form-control-lg">
+        <input class="form-control form-control-lg" type="password" formControlName="senha" name="senha" placeholder="">
         <div *ngIf="senha.invalid && forDir.submitted" class="validation-error">
           Senha incorreta!
         </div>
       </div>
 
-    <a href="#" class="fs-7">Esqueci minha senha</a>
-
       <div class="form-group">
         <div class="d-flex justify-content-between align-items-left">
-          <button class="btn btn-success btn-lg" type="submit">Entrar</button>
+          <button class="btn btn-success btn-lg" id="save-btn" type="submit" [disabled]="formulario.invalid">Entrar!</button>
+
         </div>
       </div>
-
     </form>
 
   </div>

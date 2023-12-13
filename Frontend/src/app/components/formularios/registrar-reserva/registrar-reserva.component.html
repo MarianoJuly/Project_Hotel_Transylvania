@@ -1,28 +1,43 @@
-<!-- <div class="d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center">
   <div class="card p-5">
-    <h2 class="title">Registrar Hotel</h2>
+    <h2 class="title">Realizar Reserva</h2>
     <form class="form" (ngSubmit)="submit()" [formGroup]="formulario" #forDir="ngForm">
         <div class="form-group">
-            <label class="fs-6">Nome:</label>
-            <input type="text" formControlName="name" name="nomeCliente" placeholder="Seu nome" class="form-control form-control-lg">
-            <div *ngIf="name.invalid && forDir.submitted" class="validation-error">
+            <label class="fs-6">ID Cliente:</label>
+            <input type="text" formControlName="id_cliente" name="id_cliente" placeholder="Seu nome" class="form-control form-control-lg">
+            <div *ngIf="id_cliente.invalid && forDir.submitted" class="validation-error">
                 O nome e obrigatorio!
             </div>
         </div>
         <div class="form-group">
-            <label class="fs-6">Localização:</label>
-            <input type="text" formControlName="localizacao" name="localizacao" placeholder="Ex: Maceio Sergipe" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
-            <div *ngIf="localizacao.invalid && forDir.submitted" class="validation-error">
+            <label class="fs-6">Numero quarto:</label>
+            <input type="text" formControlName="id_quarto" name="id_quarto" placeholder="Ex: Maceio Sergipe" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
+            <div *ngIf="id_quarto.invalid && forDir.submitted" class="validation-error">
                 A localização e obrigatorio!
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="fs-6">Data Entrada:</label>
+            <input type="text" formControlName="dataEntrada" name="dataEntrada" placeholder="Ex: Maceio Sergipe" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
+            <div *ngIf="dataEntrada.invalid && forDir.submitted" class="validation-error">
+                A localização e obrigatorio!
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+            <label class="fs-6">Data Saida:</label>
+            <input type="text" formControlName="dataSaida" name="dataSaida" class="form-control form-control-lg">
+            <div *ngIf="dataSaida.invalid && forDir.submitted" class="validation-error">
+                A localização e obrigatorio!
+            </div>
+        </div> -->
+
         <div class="form-group">
           <div class="d-flex justify-content-between align-items-left">
             <button class="btn btn-success btn-lg" id="save-btn" type="submit">Salvar Cadastro!</button><span style="width: 10px;"></span>
-            <button class="btn btn-primary btn-lg" id="save-btn" (click)="resetForm()">Limpar Formulario!</button> <span style="width: 10px;"></span>
-            <button class="btn btn-danger btn-lg" id="save-btn" (click)="cancel()">Cancelar</button>
           </div>
         </div>
     </form>
   </div>
-</div> -->
+</div>
