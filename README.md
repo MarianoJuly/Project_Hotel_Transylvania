@@ -75,8 +75,6 @@
                  |-> hotelTransilvania : diretório de configurações do projeto
               | -> venv : diretório com o ambiente virtual
 
-
-
           -> Frontend
               |-> src : local onde pode se encontrar a estrutura principal do codigo 
               |  -> app: estrutura que se encontra a pasta de components, routina de paginas, services e modelos
@@ -87,3 +85,11 @@
               |        -> formularios: dentro desta pasta se encontrao todo tipo de formulario
               |        -> modal : modal são arquivos que vão listar algo para o usuario 
               |->arquivos.json : se encontrão as dependencias, versões de bibliotecas etc
+
+          -> Padroes adotados: diretório com os padrões utilizados no projeto
+          
+          -> Requisitos: diretório com os requisitos e documentações de requisitos
+              | -> Diagrama de sequencia : diretório com os diagramas de sequencia
+
+            
+
