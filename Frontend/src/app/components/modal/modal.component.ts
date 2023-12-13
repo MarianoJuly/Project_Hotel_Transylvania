@@ -15,7 +15,7 @@ import { ControleFuncService } from 'src/services/controle-func.service';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit{
-    allfuncionario: funcionario[] = [];
+    funcionarios: funcionario[] = [];
     faSearch = faSearch; faTrash = faTrash; faTimes = faTimes; faPenToS = faPenToSquare;
     title = ''
     showMensage = false;
@@ -31,8 +31,7 @@ export class ModalComponent implements OnInit{
           return of([])})
        )
        .subscribe(data => {
-          this.allfuncionario = data
-          this.showMe();
+          this.funcionarios = data
       });
     };
 
@@ -40,7 +39,7 @@ export class ModalComponent implements OnInit{
     };
 
     async deletar(dados: funcionario){ //não ta pronto
-      this.controla.deletaTudo(dados.idFuncionario).subscribe(resul => console.log(resul));
+      this.controla.deletaTudo(dados.cpf).subscribe(resul => console.log(resul));
       this.mensage.add("Dado excluido com sucesso");
 
       this.route.navigate(['home']);
@@ -48,17 +47,8 @@ export class ModalComponent implements OnInit{
 
 
     editar(dados: funcionario){ //não ta pronto
-      this.route.navigate(['edit', dados.idFuncionario]);
+      this.route.navigate(['edit', dados.cpf]);
     }
 
-    showMe(){
-      if (this.allfuncionario.length === 0) {
-        this.title= 'Não há dados salvos.';
-      } else {
-        this.title = 'Os dados são: ';
-      }
-      this.showMensage = true;
-    }
-
-    displayColumns = ['ID', 'Name','CPF', 'Funções']
+    displayedColumns = ['Name','CPF', 'Funções']
 }

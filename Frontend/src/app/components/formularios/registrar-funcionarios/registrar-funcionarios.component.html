@@ -4,15 +4,15 @@
     <form class="form" (ngSubmit)="submit()" [formGroup]="formulario" #forDir="ngForm">
         <div class="form-group">
             <label class="fs-6">Nome:</label>
-            <input type="text" formControlName="name" name="nomeCliente" placeholder="Seu nome" class="form-control form-control-lg">
-            <div *ngIf="name.invalid && forDir.submitted" class="validation-error">
+            <input type="text" formControlName="nome" name="nomeCliente" placeholder="Seu nome" class="form-control form-control-lg">
+            <div *ngIf="nome.invalid && forDir.submitted" class="validation-error">
                 O nome e obrigatorio!
             </div>
         </div>
         <div class="form-group">
             <label class="fs-6">CPF:</label>
-            <input type="text" formControlName="cpfClient" name="cpfClient" placeholder="Ex: XXX.XXX.XXX-XX" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
-            <div *ngIf="cpfClient.invalid && forDir.submitted" class="validation-error">
+            <input type="text" formControlName="cpf" name="cpf" placeholder="Ex: XXX.XXX.XXX-XX" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
+            <div *ngIf="cpf.invalid && forDir.submitted" class="validation-error">
                 O CPF e obrigatorio!
             </div>
         </div>
@@ -20,7 +20,7 @@
             <label class="fs-6">Senha:</label>
             <input type="text" formControlName="senha" name="dataNascimento" class="form-control form-control-lg">
             <div *ngIf="senha.invalid && forDir.submitted" class="validation-error">
-                A data de nascimento e obrigatoria!
+                A senha e obrigatoria!
             </div>
         </div>
         <div class="form-group">

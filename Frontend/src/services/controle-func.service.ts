@@ -7,6 +7,7 @@ import { PROXY_CONFIG } from 'src/proxy.conf';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ControleFuncService {
 
     constructor(private httpClient: HttpClient) {}
@@ -14,21 +15,23 @@ export class ControleFuncService {
     list(){
       return this.httpClient.get<funcionario[]>(`${PROXY_CONFIG.baseURlFUNC}`)
       .pipe(
-        tap(tipo => console.log(tipo))
+        tap(tipo => console.log(tipo))  
       );
     }
 
     create(newData: funcionario){
-      return this.httpClient.post<funcionario>(`${PROXY_CONFIG.baseURlFUNC}`, newData);
+      console.log(newData);
+      let x = this.httpClient.post<funcionario>(`${PROXY_CONFIG.baseURlFUNC}`, newData);
+      console.log(x)
+      return x;
     }
-
 
     update(alterData: funcionario){
-      return this.httpClient.put<funcionario>(`${PROXY_CONFIG.baseURlFUNC}/edit/${alterData.idFuncionario}`, alterData);
+      return this.httpClient.put<funcionario>(`${PROXY_CONFIG.baseURlFUNC}/edit/${alterData.cpf}`, alterData);
     }
 
-    deletaTudo(idFunc: string){
-      return this.httpClient.delete(`${PROXY_CONFIG.baseURlFUNC}/${idFunc}`)
+    deletaTudo(cpf: string){
+      return this.httpClient.delete(`${PROXY_CONFIG.baseURlFUNC}/${cpf}`)
       .pipe(
         tap(response => console.log(response)),
           catchError(error => {
@@ -38,8 +41,8 @@ export class ControleFuncService {
         );
     }
 
-    getData(idFunc: string){
-      return this.httpClient.get<funcionario>(`${PROXY_CONFIG.baseURlFUNC}/${idFunc}`);
+    getData(cpf: string){
+      return this.httpClient.get<funcionario>(`${PROXY_CONFIG.baseURlFUNC}/${cpf}`);
     }
 
     searsh(input: string){

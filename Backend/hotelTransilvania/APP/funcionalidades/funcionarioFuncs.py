@@ -1,6 +1,7 @@
 from ..serializers import FuncionarioSerializer
 from ..models import Funcionario
 from rest_framework import status
+from django.http import JsonResponse
 from rest_framework.response import Response
 
 #logging
@@ -27,9 +28,9 @@ def deslogar():
     Logging.deslogar()
     return Response(Logging.get_logado())
 
-def logar(id=0, senha=0):
-    if id != 0:    
-        Funcionarios = Funcionario.objects.filter(id = id, senha = senha)
+def logar(cpf=0, senha=0):
+    if cpf != 0:    
+        Funcionarios = Funcionario.objects.filter(cpf = cpf, senha = senha)
         serializer = FuncionarioSerializer(Funcionarios, many=True)
         
         Logging.logar()
@@ -38,28 +39,31 @@ def logar(id=0, senha=0):
     else:
        return Response("fail")  
      
-def retornaFuncionario(id=0):
-    if id != 0:    
-        Funcionarios = Funcionario.objects.filter(id = id)
+def retornaFuncionario(cpf=0):
+      if cpf != 0:    
+        Funcionarios = Funcionario.objects.filter(cpf = cpf)
         serializer = FuncionarioSerializer(Funcionarios, many=True)
         return Response(serializer.data)
             
-    elif id == 0: 
+      elif cpf == 0: 
         Funcionarios = Funcionario.objects.all()
         serializer = FuncionarioSerializer(Funcionarios, many=True)
         return Response(serializer.data)
-
+      
 def salvaFuncionario(dataParam):
+    
     serializer = FuncionarioSerializer(data=dataParam)
-    if serializer.is_valid():
+    print(serializer)
+    print(dataParam)
+    if serializer.is_valcpf():
         serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+    return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-def deletaFuncionario(id):
-    if id != 0:
+def deletaFuncionario(cpf):
+    if cpf != 0:
         try:
-            Funcionarios = Funcionario.objects.get(id=id)
+            Funcionarios = Funcionario.objects.get(cpf=cpf)
             Funcionarios.delete()
             return Response("ok")
         except Funcionario.DoesNotExist:
@@ -70,10 +74,10 @@ def deletaFuncionario(id):
         Funcionarios.delete()
         return Response("deletados") 
     
-def atualizaFuncionario(id, request):
-    if id != 0:
+def atualizaFuncionario(cpf, request):
+    if cpf != 0:
         # Isso retorna um objeto único ou None
-        funcionario = Funcionario.objects.filter(id=id).first()
+        funcionario = Funcionario.objects.filter(cpf=cpf).first()
 
         if funcionario:
             funcionario.nome = request.data.get('nome', funcionario.nome)
@@ -86,4 +90,6 @@ def atualizaFuncionario(id, request):
         return Response("Funcionario não encontrado ou dados inválidos", status=404)
 
     return Response("ID inválido", status=400)    
+
+
 

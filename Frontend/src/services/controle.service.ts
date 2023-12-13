@@ -16,18 +16,18 @@ export class ControleService {
   constructor(private httpClient: HttpClient) {}
 
   list(){
-    return this.httpClient.get<DataClient[]>(`${PROXY_CONFIG.baseURl}`)
+    return this.httpClient.get<DataClient[]>(`${PROXY_CONFIG.baseURlCli}`)
     .pipe(
       tap(tipo => console.log(tipo))
     );
   }
 
   create(newData: DataClient){
-    return this.httpClient.post<DataClient>(`${PROXY_CONFIG.baseURl}`, newData);
+    return this.httpClient.post<DataClient>(`${PROXY_CONFIG.baseURlCli}`, newData);
   }
 
   update(alterData: DataClient){
-    return this.httpClient.put<DataClient>(`${PROXY_CONFIG.baseURl}/edit/${alterData.id}`, alterData);
+    return this.httpClient.put<DataClient>(`${PROXY_CONFIG.baseURlCli}/edit/${alterData.id}`, alterData);
   }
 
   deletaTudo(cpf: string){

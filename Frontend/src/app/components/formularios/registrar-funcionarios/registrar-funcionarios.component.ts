@@ -55,18 +55,18 @@ async submit() {
 
   ngOnInit(): void {
       this.formulario = new FormGroup({
-        name: new FormControl('', [Validators.required]),
-        cpfClient: new FormControl('', [Validators.required]),
-        senha: new FormControl('', [Validators.required]),
+        cpf: new FormControl("", [Validators.required]),
+        nome: new FormControl("", [Validators.required]),
+        senha: new FormControl("", [Validators.required]),
       });
  }
 
- get name(){
-   return this.formulario.get('name')!;
+ get nome(){
+   return this.formulario.get('nome')!;
  }
 
- get cpfClient(){
-   return this.formulario.get('cpfClient')!;
+ get cpf(){
+   return this.formulario.get('cpf')!;
  }
 
  get senha(){

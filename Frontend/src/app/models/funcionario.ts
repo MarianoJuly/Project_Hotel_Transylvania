@@ -1,6 +1,5 @@
 export interface funcionario{
-  idFuncionario: string;
-  name: string;
-  cpfFuncionario: string;
+  nome: string;
+  cpf: string;
   senha: string;
 }

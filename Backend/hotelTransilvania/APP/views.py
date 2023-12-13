@@ -42,27 +42,22 @@ class respostaHotel(APIView):
 class respostaFuncionario(APIView):
 
     #no get nos adicionamos um valor default do id == 0 para que possamos arrumar as rotas
-    def get(self, request, id=0):
-        if Logging.get_logado():
-            return Response("ok")
+    def get(self, request, cpf=0):
+        return retornaFuncionario(cpf)  
 
-        else:
-           return Response("deslogado")        
-
-    def post(self, request, id = 0):
-        if(Logging.get_logado() == False):
-            return Response("Faça logging")       
+    def post(self, request, cpf = 0):
+              
         return salvaFuncionario(request.data)     
     
-    def delete(self, request, id=0):
+    def delete(self, request, cpf=0):
         if(Logging.get_logado() == False):
             return Response("Faça logging")
-        return deletaFuncionario(id)
+        return deletaFuncionario(cpf)
     
-    def put(self,request, id = 0):
+    def put(self,request, cpf = 0):
         if(Logging.get_logado() == False):
             return Response("Faça logging") 
-        return atualizaFuncionario(id,request)
+        return atualizaFuncionario(cpf,request)
     
 class respostaQuarto(APIView):
     

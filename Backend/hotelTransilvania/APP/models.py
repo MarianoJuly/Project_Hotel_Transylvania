@@ -3,7 +3,8 @@ from django.db import models
 
 
 class Funcionario(models.Model):
-    cpf = models.CharField(primary_key=True, editable=False, max_length=11)
+    
+    cpf = models.CharField(primary_key=True, max_length=11)
     nome = models.CharField(max_length=200, null=False)
     senha = models.CharField(max_length=200, null=False)
 
