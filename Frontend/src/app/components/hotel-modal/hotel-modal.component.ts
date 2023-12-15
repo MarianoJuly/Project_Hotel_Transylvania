@@ -5,6 +5,7 @@ import { catchError, of } from 'rxjs';
 import { Hotel } from 'src/app/models/hotel';
 import { ControleService } from 'src/services/controle.service';
 import { MessagesService } from 'src/services/messages.service';
+import { ReservasHotelService } from 'src/services/reservas-hotel.service';
 
 @Component({
   selector: 'app-hotel-modal',
@@ -17,11 +18,11 @@ export class HotelModalComponent {
     title = ''
     showMensage = false;
 
-    constructor(private controla:ControleService,
+    constructor(private controla:ReservasHotelService,
                 private mensage: MessagesService,
                 private route: Router,
     ){
-      this.controla.hotellist() //deveria estar no service
+      this.controla.hotelList() //deveria estar no service
        .pipe(
         catchError(error => {
           this.mensage.add("Erro ao carregar");

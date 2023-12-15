@@ -41,7 +41,7 @@ export class ControleFuncService {
     }
 
     getData(cpf: string){
-      return this.httpClient.get<funcionario>(`${PROXY_CONFIG.baseURlFUNC}/${cpf}`);
+      return this.httpClient.get<funcionario>(`${PROXY_CONFIG.baseURlFUNC}${cpf}`);
     }
 
     searsh(input: string){ 
@@ -49,16 +49,8 @@ export class ControleFuncService {
     }
     
 
-
-
-
     loging(newData: any){
-      const headers = new HttpHeaders({
-        'Access-Control-Allow-Origin': 'http://localhost:4200/loging'
-        // Adicione outros cabeçalhos conforme necessário
-      });
-
-      return this.httpClient.post<any>(`${PROXY_CONFIG.baseURLLOGING}`,{ headers: headers }, newData);
+      return this.httpClient.post<any>(`${PROXY_CONFIG.baseURLLOGING}`, newData);
       
     }
   }

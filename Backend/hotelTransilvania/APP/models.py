@@ -8,10 +8,12 @@ class Funcionario(models.Model):
     nome = models.CharField(max_length=200, null=False)
     senha = models.CharField(max_length=200, null=False)
 
+
 class Cliente(models.Model):
     id =  models.AutoField(primary_key=True, auto_created=True, editable=False)
     nome = models.CharField(max_length=500, null=False)
     idade = models.PositiveIntegerField()
+
 
 class Hotel(models.Model):
     id =  models.AutoField(primary_key=True, auto_created=True, editable=False)
@@ -20,6 +22,18 @@ class Hotel(models.Model):
     temQuarto = models.BooleanField(default=False)
     localizacao = models.CharField(max_length=500, null=False, default=0)
 
+    def __init__(self, nome, quantQuarto=0, temQuarto=False, localizacao='', *args, **kwargs):
+        super(Hotel, self).__init__(*args, **kwargs)
+        self.nome = nome
+        self.quantQuarto = quantQuarto
+        self.temQuarto = temQuarto
+        self.localizacao = localizacao
+
+    def aumentar_quantidade_quartos(self):
+        self.quantQuarto += 1
+        self.save()
+
+        
 class Quarto(models.Model):
     numero = models.PositiveIntegerField(primary_key=True)
     camasSolteiro = models.PositiveIntegerField()

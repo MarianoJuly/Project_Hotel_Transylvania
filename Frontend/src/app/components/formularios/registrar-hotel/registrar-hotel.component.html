@@ -4,14 +4,14 @@
     <form class="form" (ngSubmit)="submit()" [formGroup]="formulario" #forDir="ngForm">
         <div class="form-group">
             <label class="fs-6">Nome:</label>
-            <input type="text" formControlName="name" name="nomeCliente" placeholder="Seu nome" class="form-control form-control-lg">
-            <div *ngIf="name.invalid && forDir.submitted" class="validation-error">
+            <input type="text" formControlName="nome" name="nome" placeholder="Seu nome" class="form-control form-control-lg">
+            <div *ngIf="nome.invalid && forDir.submitted" class="validation-error">
                 O nome e obrigatorio!
             </div>
         </div>
         <div class="form-group">
             <label class="fs-6">Localização:</label>
-            <input type="text" formControlName="localizacao" name="localizacao" placeholder="Ex: Maceio Sergipe" pattern="[0-9]{11}" maxlength="11" minlength="11" class="form-control form-control-lg">
+            <input type="text" formControlName="localizacao" name="localizacao" placeholder="Ex: Maceio Sergipe" class="form-control form-control-lg">
             <div *ngIf="localizacao.invalid && forDir.submitted" class="validation-error">
                 A localização e obrigatorio!
             </div>

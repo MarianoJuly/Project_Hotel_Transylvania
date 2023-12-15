@@ -31,11 +31,18 @@ async submit() {
       this.mensagens.add("Não foi possivel salvar o formulario");
       return;
     }else{
-      this.controller.create(this.formulario.value).subscribe(resul => console.log(resul));
-      this.mensagens.add("Formulario Salvo com sucesso");
-      this.resetForm();
-      this.rota.navigate(['home']);
+      this.controller.create(this.formulario.value).subscribe(result => {
+        console.log(result);
+        this.mensagens.add("Formulário salvo com sucesso");
+        this.resetForm();
+        this.rota.navigate(['home']);
+        },
+        error => {
+          this.mensagens.add("Erro ao salvar o formulario" + error.error)
+        }
+      ); 
     }
+    
   }
 
   async resetForm(){

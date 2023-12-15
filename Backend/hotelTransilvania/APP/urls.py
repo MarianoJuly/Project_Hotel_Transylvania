@@ -7,7 +7,7 @@ urlpatterns = [
 
      #url da aplicação
     path('funcionario/', respostaFuncionario.as_view()),
-    path('funcionario/<int:cpf>', respostaFuncionario.as_view()),
+    path('funcionario/<str:cpf>', respostaFuncionario.as_view()),
 
     #url da aplicação
     path('cliente/', respostaCliente.as_view()),

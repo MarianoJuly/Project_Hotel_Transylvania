@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Hotel } from 'src/app/models/hotel';
 import { ControleService } from 'src/services/controle.service';
 import { MessagesService } from 'src/services/messages.service';
+import { ReservasHotelService } from 'src/services/reservas-hotel.service';
 
 @Component({
   selector: 'app-registrar-hotel',
@@ -11,12 +12,13 @@ import { MessagesService } from 'src/services/messages.service';
   styleUrls: ['./registrar-hotel.component.scss']
 })
 export class RegistrarHotelComponent {
-
-  funcionario!: Hotel;
-
+  
   formulario!: FormGroup;
 
-  controle!: ControleService;
+  constructor(private mensagens: MessagesService,
+    private controller: ReservasHotelService,
+    private rota: Router
+    ){};
 
 
 async submit() {
@@ -41,20 +43,15 @@ async submit() {
       this.rota.navigate(['home']);
   }
 
-  constructor(private mensagens: MessagesService,
-              private controller: ControleService,
-              private rota: Router
-              ){};
-
   ngOnInit(): void {
       this.formulario = new FormGroup({
-        name: new FormControl('', [Validators.required]),
+        nome: new FormControl('', [Validators.required]),
         localizacao: new FormControl('', [Validators.required]),
       });
  }
 
- get name(){
-   return this.formulario.get('name')!;
+ get nome(){
+   return this.formulario.get('nome')!;
  }
 
  get localizacao(){

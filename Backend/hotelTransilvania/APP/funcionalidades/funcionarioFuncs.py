@@ -6,7 +6,6 @@ from rest_framework.response import Response
 
 #logging
 class Logging:
-    # Atributo estático
     logado = False
 
     # Método estático para obter o valor do atributo logado
@@ -18,27 +17,37 @@ class Logging:
     @staticmethod
     def logar():
         Logging.logado = True
+        return "Logado"
 
     # Método estático para definir o atributo como False
     @staticmethod
     def deslogar():
         Logging.logado = False
-
+        return "Deslogado"
+    
 def deslogar():
     Logging.deslogar()
     return Response(Logging.get_logado())
 
+
+
 def logar(cpf=0, senha=0):
-    if cpf != 0:    
-        Funcionarios = Funcionario.objects.filter(cpf = cpf, senha = senha)
-        serializer = FuncionarioSerializer(Funcionarios, many=True)
+    if cpf != 0:
+       
+        funcionarios = Funcionario.objects.filter(cpf=cpf, senha=senha)
         
-        Logging.logar()
-        return Response(serializer.data)
-    
+        if funcionarios.exists():
+            Logging.logar()
+            serializer = FuncionarioSerializer(funcionarios, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            
+            return Response("Credenciais inválidas", status=status.HTTP_401_UNAUTHORIZED)
     else:
-       return JsonResponse("Campos invalidos", status=status.HTTP_400_BAD_REQUEST)
+        print("credenciais invalidas")
+        return Response("Campos inválidos", status=status.HTTP_400_BAD_REQUEST)
      
+
 def retornaFuncionario(cpf=0):
       if cpf != 0:    
         Funcionarios = Funcionario.objects.filter(cpf = cpf)
@@ -63,6 +72,7 @@ def salvaFuncionario(dataParam):
 def deletaFuncionario(cpf=0):
     if cpf != 0:
         try:
+            print(cpf)
             Funcionarios = Funcionario.objects.get(cpf=cpf)
             Funcionarios.delete()
             return Response("ok")

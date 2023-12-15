@@ -20,12 +20,35 @@ def retornaHotel(id=0):
         serializer = HotelSerializer(Hotels, many=True)
         return Response(serializer.data)
 
+def adicionaQuarto(id, dataParam):
+    if id != 0:
+            # Isso retorna um objeto único ou None
+            hotel = Hotel.objects.filter(id=id).first()
+
+            if hotel:
+                hotel.aumentar_quantidade_quartos()
+                serializer = HotelSerializer(hotel, data=dataParam, partial=True)
+                
+                if serializer.is_valid():
+                    serializer.save()
+                    return Response(serializer.data)
+            
+            return Response("Hotel não encontrado ou dados inválidos", status=404)
+
+       
+
 def salvaHotel(dataParam):
-    serializer = HotelSerializer(data=dataParam)
+    # Crie uma instância do Hotel usando os dados fornecidos
+    hotel = Hotel(nome=dataParam.get('nome'), quantQuarto=0, temQuarto=False, localizacao=dataParam.get('localizacao'))
+
+    # Crie uma instância do serializer e passe a instância do Hotel
+    serializer = HotelSerializer(instance=hotel, data=dataParam)
+
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 def deletaHotel(id):
     if id != 0:

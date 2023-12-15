@@ -1,0 +1,29 @@
+<h2 class="title">Lista de Funcionários</h2>
+<section id="data-page">
+  <mat-table #table [dataSource]="funcionarios">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+    </ng-container>
+
+    <!-- cpfFuncionario Column -->
+    <ng-container matColumnDef="CPF">
+      <mat-header-cell *matHeaderCellDef>CPF</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.cpf}} </mat-cell>
+    </ng-container>
+
+    <!-- Funções Column -->
+    <ng-container matColumnDef="Funções">
+      <mat-header-cell *matHeaderCellDef>Funções</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button (click)="editar(element)">Edit</button>
+        <button (click)="deletar(element)">delete</button> 
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</section>

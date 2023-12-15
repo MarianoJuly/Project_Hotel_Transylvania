@@ -18,7 +18,6 @@ from .funcionalidades.funcionarioFuncs import Logging
 
 class respostaHotel(APIView):
     
-    #no get nos adicionamos um valor default do id == 0 para que possamos arrumar as rotas
     def get(self, request, id=0):
         if(Logging.get_logado() == False):
             return Response("Faça logging")
@@ -49,8 +48,10 @@ class respostaFuncionario(APIView):
               
         return salvaFuncionario(request.data)     
     
-    def delete(self, cpf=0):
+    def delete(self, request, cpf=0):
+        print(cpf)
         if(Logging.get_logado() == False):
+            print("deslogado")
             return Response("Faça logging")
         return deletaFuncionario(cpf)
     
@@ -118,8 +119,9 @@ class respostaReserva(APIView):
             return Response("Faça logging")       
         return salvaReserva(request.data)     
     
-    def delete(self, request, id = 0):
+    def delete(self, request, id=0):
         if(Logging.get_logado() == False):
+            print("deslogado")
             return Response("Faça logging")
         return deletaReserva(id)    
     
@@ -135,8 +137,9 @@ class Acessar(APIView):
         else: 
             return Response("Erro")
         
-    def post(self, request):       
-        return logar(request.data.get('cpf'), request.data.get('senha'))  
+    def post(self, request): 
+        x = logar(request.data.get('cpf'), request.data.get('senha'))          
+        return x
     
 
     

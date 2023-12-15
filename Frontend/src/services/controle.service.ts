@@ -53,16 +53,5 @@ export class ControleService {
     return this.httpClient.get<DataClient[]>(`${PROXY_CONFIG.baseURl}/${input}`);
   }
 
-  hotellist(){
-    return this.httpClient.get<Hotel[]>(`${PROXY_CONFIG.baseURl}`)
-    .pipe(
-      tap(tipo => console.log(tipo))
-    );
-  }
-
-  adicionaHotel(hotelNovo: Hotel){
-    return this.httpClient.post<Hotel>(`${PROXY_CONFIG.baseURl}`, hotelNovo);
-  }
-
 
 }

@@ -16,7 +16,7 @@ export class RegistrarReservaComponent implements OnInit{
       id_cliente: new FormControl("", [Validators.required]),
       id_quarto: new FormControl("", [Validators.required]),
       dataEntrada: new FormControl("", [Validators.required]),
-      dataSaida: new FormControl("", [Validators.required]),
+      dataSaida: new FormControl("", [Validators.required])
     });
   }
 
@@ -61,6 +61,6 @@ export class RegistrarReservaComponent implements OnInit{
   }
 
   get dataSaida(){
-    return this.formulario.get('dataSaida')
+    return this.formulario.get('dataSaida')!;
   }
 }

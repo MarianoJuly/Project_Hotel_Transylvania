@@ -10,12 +10,12 @@ import { funcionario } from 'src/app/models/funcionario';
 import { ControleFuncService } from 'src/services/controle-func.service';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  selector: 'app-modal-funcionario',
+  templateUrl: './modal-funcionario.component.html',
+  styleUrls: ['./modal-funcionario.component.scss']
 })
-export class ModalComponent implements OnInit{
-    funcionarios: funcionario[] = [];
+export class ModalFuncionarioComponent {
+  funcionarios: funcionario[] = [];
     faSearch = faSearch; faTrash = faTrash; faTimes = faTimes; faPenToS = faPenToSquare;
     title = ''
     showMensage = false;
@@ -46,7 +46,7 @@ export class ModalComponent implements OnInit{
     }
 
     editar(dados: funcionario){ //não ta pronto
-      this.route.navigate(['edit', dados.cpf]);
+      this.route.navigate(['editar', dados.cpf]);
     }
 
     displayedColumns = ['Name','CPF', 'Funções']
