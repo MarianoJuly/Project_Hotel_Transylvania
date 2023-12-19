@@ -24,7 +24,7 @@ export class ModalFuncionarioComponent {
                 private mensage: MessagesService,
                 private route: Router,
     ){
-      this.controla.list() //deveria estar no service
+      this.controla.list()
        .pipe(
         catchError(error => {
           this.mensage.add("Erro ao carregar");

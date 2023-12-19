@@ -36,8 +36,8 @@ import { EditarFuncionarioComponent } from './components/formularios/funcionario
     RegistrarHotelComponent,
     ModalFuncionarioComponent,
     HotelModalComponent,
-    RegistrarReservaComponent,
     EditarFuncionarioComponent,
+    RegistrarReservaComponent,
     ReservaModalComponent
   ],
   imports: [

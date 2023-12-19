@@ -26,7 +26,7 @@ export class ControleFuncService {
 
 
     update(alterData: funcionario){
-      return this.httpClient.put<funcionario>(`${PROXY_CONFIG.baseURlFUNC}/edit/${alterData.cpf}`, alterData);
+      return this.httpClient.put<funcionario>(`${PROXY_CONFIG.baseURlFUNC}${alterData.cpf}`, alterData);
     }
 
     deletaTudo(cpf: string){

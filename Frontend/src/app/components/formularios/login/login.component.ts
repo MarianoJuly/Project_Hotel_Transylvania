@@ -27,14 +27,17 @@ export class LoginComponent implements OnInit{
   }
 
   async submit() {
-    console.log("validação1")
     if(this.formulario.invalid){
       this.mensagens.add("Não foi possivel salvar o formulario");
       return;
     }else{
-      console.log("validação2")
-      this.serviceFunc.loging(this.formulario.value).subscribe();
-      this.mensagens.add("Formulario Salvo com sucesso");
+      this.serviceFunc.loging(this.formulario.value).subscribe(() => {
+          this.mensagens.add("Formulário salvo com sucesso");
+        },
+        (error) => {
+          this.mensagens.add("Erro ao salvar formulário. Por favor, tente novamente.");
+        }
+      );
     }
   }
 

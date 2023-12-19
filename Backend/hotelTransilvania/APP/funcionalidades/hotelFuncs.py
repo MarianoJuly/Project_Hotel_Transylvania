@@ -35,8 +35,6 @@ def adicionaQuarto(id, dataParam):
             
             return Response("Hotel não encontrado ou dados inválidos", status=404)
 
-       
-
 def salvaHotel(dataParam):
     # Crie uma instância do Hotel usando os dados fornecidos
     hotel = Hotel(nome=dataParam.get('nome'), quantQuarto=0, temQuarto=False, localizacao=dataParam.get('localizacao'))
@@ -48,7 +46,6 @@ def salvaHotel(dataParam):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 def deletaHotel(id):
     if id != 0:

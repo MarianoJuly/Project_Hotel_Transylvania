@@ -57,9 +57,6 @@ async submit() {
         name: new FormControl('', [Validators.required]),
         idade: new FormControl('', [Validators.required]),
       });
-
-   this.formulario.get('houseNumber')!.disable();
-   this.formulario.get('complement')!.disable();
  }
 
  get name(){
